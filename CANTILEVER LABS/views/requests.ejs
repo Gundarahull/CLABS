@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Requests</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        /* Custom styles */
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        span {
+            display: inline-block;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Friend Requests</h1>
+        <!-- Assuming friendList is passed to the EJS file as friendList -->
+        <% if (friendList && friendList.length> 0) { %>
+            <ul class="list-unstyled">
+                <% friendList.forEach(user=> { %>
+                    <li class="d-flex align-items-center">
+                        <img src="<%= user.photoURL %>" alt="<%= user.name %>'s profile picture">
+                        <div>
+                            <h5><%= user.name %></h5>
+                            <p><%= user.email %></p>
+                        </div>
+                    </li>
+                    <% }); %>
+            </ul>
+            <% } else { %>
+                <p>No friend requests</p>
+                <% } %>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

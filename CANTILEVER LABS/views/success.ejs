@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Social Auth</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <!-- load bootstrap css -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- load fontawesome -->
+  <style>
+    body {
+      padding-top: 70px;
+    }
+    
+  </style>
+</head>
+
+<body style="background-color: cadetblue;"> 
+  <div class="container" style="background-color: cadetblue;">
+    <div class="jumbotron" style="background-color:darkgray">
+      <h1 class="text-primary text-center">
+        <span class="fa fa-user"></span> Profile Information
+      </h1>
+      <div class="row">
+        <% loguser.forEach(function(user) { %>
+          <div class="col-sm-6">
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="<%= user.photoURL %>" class="card-img" alt="profile">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                     (CURRENT LOGGED ONE) <%= user.name %>
+                    </h5>
+                    <p class="card-text">
+                      <strong>Email:</strong>
+                      <%= user.email %>
+                    </p>
+                    <div class="col-sm-6 text-right">
+
+                      <a href="/auth/google/signout" class="btn btn-danger">
+                        <span class="fa fa-user"></span> Sign Out
+                      </a>
+                    </div>
+                    <br>
+                    <form action="/showfriendrequest/<%= user._id %>" method="post">
+                      <input type="hidden" name="showrequest" value="<%= presentone %>">
+                      <button type="submit" class="btn btn-primary">
+                        <span class="fa fa-users"></span> Show Friend Requests
+                      </button>
+                    </form>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+      </div>
+
+      <strong>
+        <h1>THE USERS</h1>
+      </strong>
+      <div class="row">
+        <% usersdata.forEach(function(user) { %>
+          <div class="col-sm-6">
+            <div class="card mb-3">
+              <div class="row no-gutters">
+                <div class="col-md-4">
+                  <img src="<%= user.photoURL %>" class="card-img" alt="profile">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title">
+                      <%= user.name %>
+                    </h5>
+                    <p class="card-text">
+                      <strong>Email:</strong>
+                      <%= user.email %>
+                    </p>
+                    <form id="sendRequestForm" action="/sendrequest/<%= user._id %>" method="post">
+                      <input type="hidden" id="presentoneInput" name="presentone" value="<%= presentone %>">
+                      <button id="sendRequestButton" type="submit" class="btn btn-primary btn-sm">
+                        <i class="fa fa-user-plus"></i> Send Request
+                      </button>
+                    </form>
+                    
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <% }); %>
+      </div>
+    </div>
+</body>
+<!-- <script>
+  document.getElementById('sendRequestForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission behavior
+    
+    // Disable the button to prevent multiple submissions
+    document.getElementById('sendRequestButton').setAttribute('disabled', true);
+    
+    // Change the button text to "Waiting for Accept"
+    document.getElementById('sendRequestButton').innerHTML = '<i class="fa fa-hourglass-half"></i> Waiting for Accept';
+  
+  });
+</script> -->
+
+</html>
