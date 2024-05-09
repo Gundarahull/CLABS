@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Manipulation - Create Elements</title>
+    <style>
+      body {
+        background-color: aquamarine;
+      }
+      h1 {
+        color: brown;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="heading">CHAI_AUR_CODE--- "DOM"</h1>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil atque
+      dignissimos, minus animi labore pariatur ut voluptates dolorum assumenda
+      aliquam. Natus autem rem reprehenderit quidem! RAHUL hi tgis is
+      RAHUL"whatsup whtsup my rowdy boys""
+    </p>
+    <h1>HI MAN</h1>
+    <input type="text" name="" id="" />
+    <input type="time" name="" id="" />
+    <ul>
+      <li class="list-item">one</li>
+      <li class="list-item">Two</li>
+      <li class="list-item">Three</li>
+    </ul>
+
+    <div class="parent">
+      <div class="day">MONDAT</div>
+      <div class="day">TUESDAY</div>
+      <div class="day">WEDNESDAY</div>
+      <div class="day">THURSDAY</div>
+      <div class="day">FRIDAY</div>
+    </div>
+  </body>
+  <!-- <script src="01_SCript.js"></script> -->
+  <script>
+    const parent = document.querySelector(".parent");
+    // console.log(parent.children);
+    // console.log(parent.children[3].textContent);
+    //ITERATING THROUGH XHILDERS
+    // for (const ind of parent.children) {
+    //   console.log(ind.textContent);
+
+    // }
+    // console.log(parent.firstElementChild); //to access the first child
+    // console.log(parent.lastElementChild);  //to acees the last
+
+    const child=document.querySelector(".day");
+    console.log(child);
+    console.log(child.parentElement); //to aces the parent
+    console.log(child.nextElementSibling);//to get the next sibling
+    console.log(parent.childNodes);  //to get all the childern including text nodes
+
+  </script>
+</html>

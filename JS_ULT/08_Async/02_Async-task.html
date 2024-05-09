@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ASYNC-TASK</title>
+  </head>
+  <body>
+    <h1>ASYNC-TASK -------- BACKGROUND CHANGE</h1>
+    <button id="start">START TO CHANGE</button>
+    <button id="stop">STOP THE PROCESS</button><br />
+  </body>
+  <script>
+    const random = function generateRandomColor() {
+      // Generate random values for red, green, and blue components
+      var red = Math.floor(Math.random() * 256);
+      var green = Math.floor(Math.random() * 256);
+      var blue = Math.floor(Math.random() * 256);
+
+      // Construct the color code in hexadecimal format
+      var colorCode =
+        "#" +
+        red.toString(16).padStart(2, "0") +
+        green.toString(16).padStart(2, "0") +
+        blue.toString(16).padStart(2, "0");
+
+      return colorCode;
+    };
+
+
+    const changeBackgroundColor = () => {
+      document.body.style.backgroundColor = random();
+    };
+
+    document.querySelector("#start").addEventListener("click", () => {
+      console.log("INTO CHANGE");
+       intervalId = setInterval(changeBackgroundColor, 1000);
+    })
+    document.querySelector("#stop").addEventListener("click", () => {
+      console.log("after CHANGE");
+      
+        clearInterval(intervalId, 1000);
+    })
+
+  </script>
+</html>

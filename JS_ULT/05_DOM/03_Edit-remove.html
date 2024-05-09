@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: grey;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="language">
+      <li>Python</li>
+      <li>JAVASCRIPT</li>
+      <li>GO-LANG</li>
+      <li>JAVA</li>
+      <li>RuBY</li>
+    </ul>
+    <!-- <p class="button"> THISIS BUtton</p> -->
+  </body>
+  <script>
+    function addlang(lang) {
+      const liele = document.createElement("li");
+      // console.log(liele);
+      const itext = document.createTextNode(lang);
+      liele.appendChild(itext);
+      const uli = document.querySelector(".language");
+      console.log(uli);
+      uli.appendChild(liele);
+    }
+    addlang("c SHARp");
+    addlang('TYPE SCRIPT')
+
+    //EDIT
+    // selected ekemnt.replacewith("new text")
+
+
+
+    //REMOVE
+    const remove=document.querySelector('li:last-child')
+    console.log(remove);
+    remove.remove() //just deleting by .remove()
+    //so nice man
+    // ..k ramp
+  </script>
+</html>

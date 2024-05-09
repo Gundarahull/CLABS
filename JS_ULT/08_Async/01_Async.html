@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASYNC</title>
+</head>
+<body>
+    <h1>ASYNC-CHAI_AUR_CODE</h1>
+    <button id="stop">STOP</button>
+    <button id="start">START</button>
+</body>
+<script>
+    let intervalID; // variable to store setInterval reference
+
+    const int = () => {
+        console.log("INTERVAL");
+    }
+
+    document.querySelector('#start').addEventListener('click', () => {
+        intervalID = setInterval(int, 1000); // store setInterval reference
+        console.log("SET INTERVAL");
+    })
+
+    document.querySelector('#stop').addEventListener('click', () => {
+        clearInterval(intervalID); // clear setInterval using the stored reference
+        console.log("CLEAR INTERVAL");
+    })
+</script>
+</html>

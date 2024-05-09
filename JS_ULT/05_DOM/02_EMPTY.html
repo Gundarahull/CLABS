@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+        }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    //
+    const  createElement = document.createElement("h1");
+    console.log(createElement); // HTMLHeadingElement {}
+    // createElement.innerText="CREATING ELEMENt"
+    createElement.id= "myH1";
+    createElement.className ="redColor";
+    /* Adding attribute to the element */
+    //creating textnode
+    const textNode=document.createTextNode("FROM THE CHAI-AUR-CODE")
+    /* Appending the text node to the created H1 tag*/
+    createElement.appendChild(textNode)
+    //j1 tag adding to the  Body of the Html page
+    document.body.appendChild(createElement)
+  </script>
+</html>
